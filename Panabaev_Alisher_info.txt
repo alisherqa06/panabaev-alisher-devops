@@ -1,0 +1,5 @@
+Name: Alisher
+Surname: Panabaev
+Group: It2-2308
+Student ID: 37332
+Course: DevOps
