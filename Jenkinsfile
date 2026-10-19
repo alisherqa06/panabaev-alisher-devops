@@ -54,7 +54,7 @@ pipeline {
                         --env STUDENT_GROUP="$STUDENT_GROUP" \
                         --env STUDENT_ID="$STUDENT_ID" \
                         "$DOCKER_IMAGE"
-                    python3 scripts/check_http.py http://127.0.0.1:8080
+                    python3 scripts/check_http.py http://host.docker.internal:8080
                     docker ps --filter "name=^/${DOCKER_CONTAINER}$"
                     docker logs "$DOCKER_CONTAINER"
                 '''
