@@ -1,0 +1,11 @@
+.git
+.gitignore
+.env
+*.log
+backup/
+private.txt
+public.txt
+__pycache__/
+*.py[cod]
+work/
+outputs/

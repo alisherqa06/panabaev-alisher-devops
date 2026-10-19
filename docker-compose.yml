@@ -1,0 +1,14 @@
+services:
+  app:
+    image: panabaev-alisher-devops
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: panabaev-alisher-container
+    environment:
+      STUDENT_NAME: Alisher
+      STUDENT_SURNAME: Panabaev
+      STUDENT_GROUP: It2-2308
+      STUDENT_ID: "37332"
+    ports:
+      - "8080:8080"
