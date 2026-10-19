@@ -97,7 +97,7 @@ Create a Jenkins item named `Panabaev_Alisher_DevOps` with type **Pipeline**. In
 
 The Jenkinsfile defines the environment values and the stages `Checkout`, `Build`, `Test`, `Docker Build`, and `Docker Run`. Checkout records the source commit. Build compiles the Python files, Test runs `unittest`, Docker Build creates the named image, and Docker Run replaces any old container with the required name before checking the HTTP page and printing its logs. A failed command fails the Pipeline; the final stage only succeeds when the health check sees the expected student values.
 
-To see a recorded result, open the job's latest build and confirm `Finished: SUCCESS`, all five green stages, its Console Output, source commit, image, and running container. The Jenkins container needs Docker Engine access for this lab; keep the local dashboard and Docker socket confined to the local development machine.
+The local Jenkins job `Panabaev_Alisher_DevOps` is configured to load `Jenkinsfile` from the public repository's `*/main` branch. Build #1 exposed a wrong loopback URL inside the Jenkins container; commit `d60133dab3eda0383b184feeba0f14f5ae586972` changed the HTTP check to use `host.docker.internal`. Build #2 checked out that commit, passed all five stages, ran all four unit tests, built `panabaev-alisher-devops`, started `panabaev-alisher-container`, passed the HTTP check with the expected values, and ended with `Finished: SUCCESS`. The Jenkins container reaches the shared Docker Desktop engine through the mounted WSL socket. Keep the local dashboard and Docker socket confined to the local development machine.
 
 ## Integrated workflow
 
@@ -113,6 +113,6 @@ Checks confirmed on 2026-10-19:
 - `docker --version` reports 29.8.2, `docker compose version` reports 5.6.0, `docker info` reaches the Docker Desktop engine, and `docker run --rm hello-world` completed.
 - Four Python unit tests passed. The app image built as `panabaev-alisher-devops`; the named container returned the expected student page and health response. Its `logs`, `exec`, `stop`, `start`, and `rm` lifecycle was checked.
 - `docker compose up --build -d`, `docker compose ps`, `docker compose logs`, and `docker compose down` completed; the app health check passed while Compose was running.
-- The custom Jenkins controller image was built with Python, Git, and Docker CLI. From inside the image, Docker reported the same 29.8.2 Desktop Engine. The controller is running at <http://localhost:8081> and its `/login` page returned HTTP 200.
+- The custom Jenkins controller image was built with Python, Git, and Docker CLI. From inside the image, Docker reported the same 29.8.2 Desktop Engine. The controller is running at <http://localhost:8081>, the first-run setup completed, and build #2 of `Panabaev_Alisher_DevOps` ended with `Finished: SUCCESS` after all five stages passed.
 
-The Jenkins first-run setup and job creation still require a local administrator action. No Jenkins Pipeline result is claimed until the `Panabaev_Alisher_DevOps` job is configured and its build actually finishes.
+The latest source commit is `d60133dab3eda0383b184feeba0f14f5ae586972`; `main` and `development` are aligned and the working tree was clean after the push. The student still needs to record their own voice demonstration and save course-required screenshots from the live Jenkins, Docker, and app screens.
