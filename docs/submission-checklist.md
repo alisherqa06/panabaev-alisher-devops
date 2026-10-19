@@ -7,7 +7,7 @@
 - [x] Bash script называется `Panabaev_Alisher_system.sh` и имеет права `755`.
 - [x] Jenkins Job называется `Panabaev_Alisher_DevOps`.
 - [x] Последний запуск Jenkins Pipeline (#2) имеет `Finished: SUCCESS` и пять пройденных стадий.
-- [ ] Сохранены скриншоты Dashboard, job/stages, Console Output, Docker image/container, приложения и Git commit.
+- [ ] Сохранены реальные скриншоты: Jenkins Dashboard/job, все пять стадий build #2, Console Output с `Finished: SUCCESS`, Docker image/container, страница приложения и GitHub с последним коммитом.
 - [x] PDF-отчёт содержит проверенные результаты и фактический статус Jenkins.
 - [ ] Записано одно непрерывное видео длительностью 10-20 минут с экраном и голосом студента.
 - [x] В Git нет `.env`, паролей, GitHub tokens и Jenkins secrets.
