@@ -1,0 +1,3 @@
+Public file for Linux permission demonstration.
+Owner can read and write; others can read.
+Permissions: 644
